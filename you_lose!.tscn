@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq2c520snn4bs"]
+[gd_scene load_steps=3 format=3 uid="uid://c3qflrboiooau"]
 
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_su8pm"]
-[ext_resource type="FontFile" uid="uid://bjjlnpmm3oyu0" path="res://Pixeled.ttf" id="2_unnrj"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_s50ms"]
+[ext_resource type="FontFile" uid="uid://bjjlnpmm3oyu0" path="res://Pixeled.ttf" id="2_2f848"]
 
-[node name="MainMenu" type="Control"]
+[node name="YouLose!" type="Control"]
 layout_mode = 3
-anchor_left = 0.198
-anchor_top = 0.291
+anchor_left = 0.07
+anchor_top = 0.094
 anchor_right = 0.712
 anchor_bottom = 0.788
-offset_left = -126.72
-offset_top = -104.76
+offset_left = -44.8
+offset_top = -33.84
 offset_right = 184.32
 offset_bottom = 76.32
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_su8pm")
+script = ExtResource("1_s50ms")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,18 +32,27 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_unnrj")
-text = "Start game"
+theme_override_fonts/font = ExtResource("2_2f848")
+text = "Try Again"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_unnrj")
+theme_override_fonts/font = ExtResource("2_2f848")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_unnrj")
+theme_override_fonts/font = ExtResource("2_2f848")
 text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 36.0
+offset_right = 551.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_2f848")
+text = "You Died?"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

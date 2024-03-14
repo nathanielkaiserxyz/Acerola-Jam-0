@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boxu2ajsln8yl"
-path="res://.godot/imported/button-three.png-eea3845f48431b29ba479e0e6f5299cf.ctex"
+uid="uid://dqfcjuk6x62t8"
+path="res://.godot/imported/gouptowin.png-2c3c48115623c2c9b5f57140e2387ca0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://button-three.png"
-dest_files=["res://.godot/imported/button-three.png-eea3845f48431b29ba479e0e6f5299cf.ctex"]
+source_file="res://gouptowin.png"
+dest_files=["res://.godot/imported/gouptowin.png-2c3c48115623c2c9b5f57140e2387ca0.ctex"]
 
 [params]
 

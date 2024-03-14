@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuiayf58d0jyd"]
+[gd_scene load_steps=14 format=3 uid="uid://cuiayf58d0jyd"]
 
 [ext_resource type="Script" path="res://enemy1.gd" id="1_ly670"]
 [ext_resource type="Texture2D" uid="uid://i21pjpf70iio" path="res://enemy1.png" id="1_qvugb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewxwq"]
-size = Vector2(22, 26)
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_un6jt"]
 atlas = ExtResource("1_qvugb")
@@ -75,15 +75,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8mkp"]
+size = Vector2(18, 18)
+
 [node name="enemy1" type="Node2D"]
 
 [node name="enemy1" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ly670")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy1"]
-position = Vector2(-1, 3)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_ewxwq")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy1"]
 sprite_frames = SubResource("SpriteFrames_n827a")
 animation = &"run"
+
+[node name="Area2D" type="Area2D" parent="enemy1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy1/Area2D"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_i8mkp")
+
+[connection signal="area_entered" from="enemy1/Area2D" to="enemy1" method="_on_area_2d_area_entered"]

@@ -1,3 +1,25 @@
+extends PhysicsBody2D
+
+var velocity = Vector2(30, 10)
+
+func _physics_process(delta):
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+		
+	if velocity.x > .1:
+		$AnimatedSprite2D.animation = "run"
+		$AnimatedSprite2D.flip_h = false
+	elif velocity.x < -.1:
+		$AnimatedSprite2D.animation = "run"
+		$AnimatedSprite2D.flip_h = true
+	elif velocity.x > -.1 || velocity.x < .1:
+		$AnimatedSprite2D.animation = "idle"
+	
+	$AnimatedSprite2D.play($AnimatedSprite2D.animation)
+	
+
+'''
 extends CharacterBody2D
 
 
@@ -29,9 +51,17 @@ func _process(delta):
 	elif velocity.x < -.1:
 		$AnimatedSprite2D.animation = "run"
 		$AnimatedSprite2D.flip_h = true
-	else:
+	elif velocity.x > -.1 || velocity.x < .1:
+		direction = direction * -1
 		$AnimatedSprite2D.animation = "idle"
 	
 	$AnimatedSprite2D.play($AnimatedSprite2D.animation)
 	
-	move_and_slide()
+	move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+'''
+
+
+func _on_area_2d_area_entered(area):
+	get_tree().change_scene_to_file("res://you_lose!.tscn")

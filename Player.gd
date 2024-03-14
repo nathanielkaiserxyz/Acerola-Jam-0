@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal shoot(bullet, direction, location)
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -25,9 +23,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if velocity.y > 0:
-		$AnimatedSprite2D.animation = "jump"
-	elif velocity.x > .1:
+	if velocity.x > .1:
 		$AnimatedSprite2D.animation = "run"
 		$AnimatedSprite2D.flip_h = false
 	elif velocity.x < -.1:
@@ -37,5 +33,5 @@ func _physics_process(delta):
 		$AnimatedSprite2D.animation = "idle"
 	
 	$AnimatedSprite2D.play($AnimatedSprite2D.animation)
-	
 	move_and_slide()
+
